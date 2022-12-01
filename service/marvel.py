@@ -22,7 +22,7 @@ def get_hash():
 
 def busca_herois(nameStartsWith=None):
     info_hash = get_hash()
-    
+
     params = {
         "nameStartsWith": nameStartsWith,
         "limit": 50,

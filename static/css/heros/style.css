@@ -57,3 +57,7 @@ main{
     height: 279px;
     width: 200px;
 }
+
+main .card-body{
+    color: white;
+}

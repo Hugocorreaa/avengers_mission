@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from service.marvel import herois
+from flask.globals import request
+
 
 
 
@@ -12,10 +14,9 @@ def index():
 @app.route("/heros")
 def heros():
     lista_herois = herois()
-    return render_template('heros.html', listaHerois=lista_herois)
+    return render_template('heros.html', lista_herois=lista_herois)
 
 
     
-
 if __name__ == '__main__':
     app.run(debug=True)
