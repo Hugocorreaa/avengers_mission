@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/heros/style.css">
+    <title>Avengers Mission</title>
+</head>
+
+
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <img src="/static/img/anon.png" alt="logo" class="logo">
+            </div>
+
+            <form action="search" method="POST">
+                <input type="search" name="name">
+                <button type="submit" name="search"><img src="/static/img/search.png" alt="search" class="search-img"></button>
+            </form>
+
+            <ul>
+                <li><a href="">ver selecionados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% for heroi in lista_herois %}
+        <div class="card">
+            <div>
+                <img src="{{ heroi.getImagem() }}">
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">{{ heroi.getNome() }}</h5>
+                <p class="card-text">{{ heroi.getDescricao() }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </main>
+
+
+
+
+</body>
+</html>

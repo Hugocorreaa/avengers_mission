@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/**** NAV ****/
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .logo{
+    width: 100px;
+}
+
+nav form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav form button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    background: #0B0B22;
+}
+
+.card{
+    height: 279px;
+    width: 676px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+
+    display: flex;
+
+}
+
+.card img{
+    height: 279px;
+    width: 200px;
+}
