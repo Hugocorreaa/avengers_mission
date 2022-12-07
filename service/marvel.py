@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from time import time
-from model.Heroi import Heroi
+from model.MarvelHero import MarvelHero
 
 import os
 import hashlib
@@ -20,12 +20,12 @@ def get_hash():
     return (ts, apikey, hash_marvel)
 
 
-def busca_herois(nameStartsWith=None):
+def search_marvel_heros(nameStartsWith=None):
     info_hash = get_hash()
 
     params = {
+        "limit": 8,
         "nameStartsWith": nameStartsWith,
-        "limit": 50,
         "ts": info_hash[0],
         "apikey": info_hash[1],
         "hash": info_hash[2]
@@ -36,11 +36,13 @@ def busca_herois(nameStartsWith=None):
     return resp.json()['data']['results']
 
 
-def herois():
-    lista = busca_herois()
+def herois(request):
+    lista = search_marvel_heros(request)
     
-    return list(map(lambda heroi : Heroi(
+    return list(map(lambda heroi : MarvelHero(
+        heroi['id'],
         heroi['name'],
         heroi['description'],
         heroi['thumbnail']['path']+ "." +heroi['thumbnail']['extension'],
         ), lista))
+    

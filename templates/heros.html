@@ -5,44 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/heros/style.css">
+    <script src="../static/js/jquery-3.6.1.min.js"></script>
     <title>Avengers Mission</title>
 </head>
 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <img src="/static/img/anon.png" alt="logo" class="logo">
-            </div>
+  <div class="glass-container">
+    <nav>
+      <div class="logo">Project<span>Cerebro.</span></div>
 
-            <form action="search" method="POST">
-                <input type="search" name="name">
-                <button type="submit" name="search"><img src="/static/img/search.png" alt="search" class="search-img"></button>
-            </form>
-
-            <ul>
-                <li><a href="">ver selecionados</a></li>
-            </ul>
-        </nav>
-    </header>
+      <ul>
+        <!-- search hero -->
+        <form action="/heros/" method="POST">
+            <input class="input-search" type="search" name="name">
+            <input class="search-img" type="submit" name="search" value="search"></input>
+        </form>
+        <!--  -->
+        <li><a href="/chosen" >see selected</a></li>
+ 
+      </ul>
+    </nav>
 
     <main>
         {% for heroi in lista_herois %}
-        <div class="card">
-            <div>
-                <img src="{{ heroi.getImagem() }}">
-            </div>
+            <div id="{{ loop.index0 }}" class="card" data-id="{{ heroi.getId() }}">
+                <div>
+                    <img class="image" src="{{ heroi.getImage() }}">
+                </div>
 
-            <div class="card-body">
-                <h5 class="card-title">{{ heroi.getNome() }}</h5>
-                <p class="card-text">{{ heroi.getDescricao() }}</p>
+                <div class="card-body">
+                    <h5 class="card-title name">{{ heroi.getName() }}</h5>
+                    <p class="card-text description">{{ heroi.getDescription() }}</p>
+                    
+                    <button class="select-button" onclick="select('{{ loop.index0 }}')">Select</button>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
     </main>
 
+    
 
 
+    <script src="../static/js/getHero.js"></script>
+
+  </div>
+
+  <div class="bg-1"></div>
+  <div class="bg-2"></div>
 
 </body>
 </html>
+
